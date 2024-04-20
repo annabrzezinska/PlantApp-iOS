@@ -5,6 +5,12 @@ class MyPlantsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "My plants"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "plus"),
+            style: .plain,
+            target: nil,
+            action: nil
+        )
         setUpBackgroundView()
     }
     
@@ -17,4 +23,5 @@ class MyPlantsController: UITableViewController {
         noDataLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
         noDataLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
     }
+    
 }
