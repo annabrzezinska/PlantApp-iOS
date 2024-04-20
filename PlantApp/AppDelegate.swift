@@ -10,10 +10,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        let navigationController = UINavigationController(rootViewController: MyPlantsController())
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
+        navigationController.navigationItem.compactAppearance = appearance
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }
 
 }
-

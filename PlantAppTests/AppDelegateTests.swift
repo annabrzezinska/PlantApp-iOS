@@ -19,10 +19,11 @@ class AppDelegateTests: XCTestCase {
         let result = sut.application(UIApplication.shared, didFinishLaunchingWithOptions: nil)
         
         let window = try XCTUnwrap(sut.window)
+        let rootController = try XCTUnwrap(window.rootViewController as? UINavigationController)
         
         XCTAssertEqual(result, true)
         XCTAssertEqual(window.frame, UIScreen.main.bounds)
-        XCTAssertNotNil(window.rootViewController as? ViewController)
+        XCTAssertNotNil(rootController.viewControllers.first as? MyPlantsController)
         XCTAssertEqual(window.isKeyWindow, true)
         XCTAssertEqual(window.isHidden, false)
     }
